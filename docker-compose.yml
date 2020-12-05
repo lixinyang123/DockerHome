@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+
+  database:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/mysql
+
+  corehome.homepage:
+    image: lixinyang/corehome-homepage
+    depends_on:
+      - database
+    restart: always
+    volumes:
+      - ./config/appsettings.json:/app/appsettings.json
+      - ./config/SiteMap.txt:/app/wwwroot/SiteMap.txt
+      - ./config/favicon.ico:/app/wwwroot/favicon.ico
+      - ./data:/home
+
+  corehome.admin:
+    image: lixinyang/corehome-admin
+    depends_on:
+      - database
+    restart: always
+    volumes:
+      - ./config/appsettings.json:/app/appsettings.json
+      - ./config/favicon.ico:/app/wwwroot/favicon.ico
+      - ./data:/home
+
+  corehome.reverseproxy:
+    image: lixinyang/corehome-reverseproxy
+    depends_on:
+      - corehome.homepage
+      - corehome.admin
+    restart: always
+    ports:
+      - "8080:80"
