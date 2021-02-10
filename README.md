@@ -134,6 +134,7 @@ bash ./scripts/docker.sh
   },
   "PageSize": 10,
   "ServerChanSckey": "",
+  "BaiduLinkSubmit": "",
   "OssConfig": {
     "AccessKeyId": "",
     "AccessKeySecret": "",
@@ -145,6 +146,7 @@ bash ./scripts/docker.sh
 ```
 
 - ServerChanSckey 填入Server酱的SCKEY，详情见上方 **注册Server酱** 部分
+- BaiduLinkSubmit 百度资源搜索平台主动推送 API
 - AccessKeyId 和 AccessKeySecret 填入阿里云 AccessKeyId 和 AccessKeySecret，详情见上方 **创建阿里云 AccessKeyId 和 AccessKeySecret** 部分
 - EndPoint，BucketDomainName，BucketName 填入 OSS 的 Bucket 信息，详情见上方 **记录Bucket信息**
 
@@ -165,6 +167,7 @@ bash ./scripts/docker.sh
   },
   "PageSize": 10,
   "ServerChanSckey": "SCU53487T3f2*****************5d0463b66ac44",
+  "BaiduLinkSubmit": "http://data.zz.baidu.com/urls?site=******************",
   "OssConfig": {
     "AccessKeyId": "LT*******************Nx",
     "AccessKeySecret": "xS*******************kHk",
