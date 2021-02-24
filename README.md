@@ -102,20 +102,11 @@ git clone https://github.com/lixinyang123/DockerHome.git
 		- appsettings.json（项目配置）
 		- favicon.ico（网站图标）
 	- scripts
-		- aliyun.sh（从阿里云拉取镜像脚本）
-		- docker.sh（适用于 Ubuntu 的 Docker 和 Docker-Compose 安装脚本）
+		- pull-images.sh（从阿里云拉取镜像脚本）
 	- README.md（自述文件）
-	- default.conf（nginx配置）
-	- docker-compose.override.yml（docker-compose配置）
 	- docker-compose.yml（docker-compose配置）
 
 > 注意：用户需要配置的内容全部在config文件夹下，其他文件不要修改
-
-- 如果你的服务器是Ubuntu系统，并且没有安装 Docker 和 Docker-Compose，可以直接执行 scripts/docker.sh 来安装 Docker。
-
-```shell
-bash ./scripts/docker.sh
-```
 
 - 如果你的服务器已经安装过 Docker 和 Docker-Compose，那么可以开始修改配置文件了。
 
