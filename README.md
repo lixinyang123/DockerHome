@@ -5,7 +5,7 @@ DockerHome是为了方便部署CoreHome而产生的项目，主要是为了方�
 
 ### 使用DockerHome快速搭建CoreHome
 
-![Docker Image](https://github.com/lixinyang123/CoreHome/workflows/Docker%20Image/badge.svg)
+![build](https://github.com/lixinyang123/CoreHome/workflows/build/badge.svg?branch=main)
 
 CoreHome是一个基于 .NET 5 和阿里云OSS的博客系统（依赖于 Aliyun.OSS.SDK.NetCore），包含了个人信息管理，主页项目管理，主题管理（主页背景，亮暗主题，BGM），博客管理、分类、标签、归档，评论及反馈提醒，服务器网络状态检测等功能。
 
