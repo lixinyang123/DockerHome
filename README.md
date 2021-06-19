@@ -214,7 +214,7 @@ docker-compose up
 如果拉取速度很慢，可以从阿里云拉取镜像，只需执行 **scripts/aliyun.sh** ，并重新执行 **docker-compose up** 即可。
 
 ```shell
-bash ./scripts/aliyun.sh
+bash ./scripts/pull-image.sh.sh
 docker-compose up
 ```
 
