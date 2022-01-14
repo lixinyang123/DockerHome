@@ -200,22 +200,22 @@ https://www.lllxy.net/FeedBack
 进入DockerHome项目根目录，执行
 
 ```shell
-docker-compose up
+docker compose up
 ```
 
 默认会从DockerHub拉取需要的镜像并启动
 
 拉取的镜像：
-- lixinyang/corehomehomepage:latest
-- lixinyang/corehomeadmin:latest
+- lixinyang/corehome-homepage
+- lixinyang/corehome-admin
+- lixinyang/corehome-reverseproxy
 - mysql:latest
-- nginx:latest
 
-如果拉取速度很慢，可以从阿里云拉取镜像，只需执行 **scripts/aliyun.sh** ，并重新执行 **docker-compose up** 即可。
+如果拉取速度很慢，可以从阿里云拉取镜像，只需执行 `scripts/pull-image.sh.sh` ，并重新执行 `docker compose up` 即可。
 
 ```shell
-bash ./scripts/pull-image.sh.sh
-docker-compose up
+bash ./scripts/pull-image.sh
+docker compose up
 ```
 
 网站默认在8080端口启动（ http://localhost:8080 ） ，启动时请注意端口是否被占用
