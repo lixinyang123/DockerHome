@@ -72,21 +72,26 @@ DockerHome是为了方便部署CoreHome而产生的项目，主要是为了方�
 
 ![](https://corehome.oss-accelerate.aliyuncs.com/blogs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-08-20%20033230.jpg)
 
-### 注册Server酱（ServerChan）
 
-此博客使用Server酱来给你的微信发送各种通知（动态登陆密码，评论通知，反馈中心，等...）
+### 注册 PushDeer
 
-这里放上[Server酱官网](http://sc.ftqq.com/3.version "Server酱官网")
+此博客使用 PushDeer 来给你的微信发送各种通知（动态登陆密码，评论通知，反馈中心，等...）
 
-使用你的Github账户登录Server酱，接下来点击微信推送，并使用你的微信扫码绑定Server酱。
+这里放上 [PushDeer仓库](https://github.com/easychen/pushdeer)，你需要访问 Release 来安装合适的版本，或是轻应用。
 
-> 如果你没有Github账户，点击[这里](https://github.com/join "这里")注册
+使用你的微信账户登录 PushDeer，接下来点击创建 Key 并绑定设备。
 
-![](https://corehome.oss-accelerate.aliyuncs.com/blogs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-08-20%20031014.jpg)
+<img style="float: left; width: 170px; margin: 10px;" src="https://corehome.oss-accelerate.aliyuncs.com/blogs/f8a83ee9-ee4d-4920-92c6-1d53dc97d651.jpg" />
 
-最后点击发送消息，记录下SCKEY
+<img style="float: left; width: 170px; margin: 10px;" src="https://corehome.oss-accelerate.aliyuncs.com/blogs/edd738ae-821b-4882-bf29-26efb8aef3ae.jpg" />
 
-![](https://corehome.oss-accelerate.aliyuncs.com/blogs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202020-08-20%20031415.jpg)
+<img style="float: left; width: 170px; margin: 10px;" src="https://corehome.oss-accelerate.aliyuncs.com/blogs/3865fdde-6574-4d95-be92-68c85a27080e.jpg" />
+
+<img style="float: left; width: 170px; margin: 10px;" src="https://corehome.oss-accelerate.aliyuncs.com/blogs/5fb150cf-3144-47f5-a02d-0397c22a5ddc.jpg" />
+
+<div style="clear: both;"></div>
+
+你可以点击发送消息进行测试，并记录下 Key。最后将其填入 `appsettings.json` 中的 `PushDeerSckey` 项。
 
 ### 部署CoreHome
 
@@ -124,7 +129,7 @@ git clone https://github.com/lixinyang123/DockerHome.git
     "CoreHome": "server=database;user id=root;password=password;database=corehome"
   },
   "PageSize": 10,
-  "ServerChanSckey": "",
+  "PushDeerSckey": "",
   "BaiduLinkSubmit": "",
   "OssConfig": {
     "AccessKeyId": "",
@@ -136,7 +141,7 @@ git clone https://github.com/lixinyang123/DockerHome.git
 }
 ```
 
-- ServerChanSckey 填入Server酱的SCKEY，详情见上方 **注册Server酱** 部分
+- PushDeerSckey 填入 PushDeer 的 Key，详情见上方 **注册 PushDeer** 部分
 - BaiduLinkSubmit 百度资源搜索平台主动推送 API
 - AccessKeyId 和 AccessKeySecret 填入阿里云 AccessKeyId 和 AccessKeySecret，详情见上方 **创建阿里云 AccessKeyId 和 AccessKeySecret** 部分
 - EndPoint，BucketDomainName，BucketName 填入 OSS 的 Bucket 信息，详情见上方 **记录Bucket信息**
@@ -157,14 +162,14 @@ git clone https://github.com/lixinyang123/DockerHome.git
     "CoreHome": "server=database;user id=root;password=password;database=corehome"
   },
   "PageSize": 10,
-  "ServerChanSckey": "SCU53487T3f2*****************5d0463b66ac44",
+  "PushDeerSckey": "SCU53487T3f2*****************5d0463b66ac44",
   "BaiduLinkSubmit": "http://data.zz.baidu.com/urls?site=******************",
   "OssConfig": {
     "AccessKeyId": "LT*******************Nx",
     "AccessKeySecret": "xS*******************kHk",
     "EndPoint": "https://oss-cn-shenzhen.aliyuncs.com/",
-    "BucketDomainName": "https://corehome.oss-accelerate.aliyuncs.com/",
-    "BucketName": "corehome"
+    "BucketDomainName": "https://****home.oss-accelerate.aliyuncs.com/",
+    "BucketName": "****home"
   }
 }
 ```
