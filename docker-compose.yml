@@ -15,6 +15,7 @@ services:
     image: lixinyang/corehome-homepage
     depends_on:
       - database
+      - corehome.admin
     restart: always
     volumes:
       - ./config/appsettings.json:/app/appsettings.json
