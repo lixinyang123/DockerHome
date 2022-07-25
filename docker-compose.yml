@@ -38,5 +38,7 @@ services:
       - corehome.homepage
       - corehome.admin
     restart: always
+    volumes:
+      - ./data:/home
     ports:
       - "8080:80"
