@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
 
-  database:
+  corehome.database:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     environment:
@@ -12,9 +12,9 @@ services:
       - ./data/db:/var/lib/mysql
 
   corehome.homepage:
-    image: lixinyang/corehome-homepage
+    image: lixinyang/corehome.homepage
     depends_on:
-      - database
+      - corehome.database
     restart: always
     volumes:
       - ./config/appsettings.json:/app/appsettings.json
@@ -23,9 +23,9 @@ services:
       - ./data:/home
 
   corehome.admin:
-    image: lixinyang/corehome-admin
+    image: lixinyang/corehome.admin
     depends_on:
-      - database
+      - corehome.database
     restart: always
     volumes:
       - ./config/appsettings.json:/app/appsettings.json
@@ -33,7 +33,7 @@ services:
       - ./data:/home
 
   corehome.reverseproxy:
-    image: lixinyang/corehome-reverseproxy
+    image: lixinyang/corehome.reverseproxy
     depends_on:
       - corehome.homepage
       - corehome.admin
