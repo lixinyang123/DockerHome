@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corehome-reverseproxy
+  namespace: default
+  labels:
+    name: corehome-reverseproxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: corehome-reverseproxy
+  template:
+    metadata:
+      labels:
+        name: corehome-reverseproxy
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: corehome-reverseproxy
+          image: lixinyang/corehome.reverseproxy
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+
+      volumes:
+        - configMap:
+            name: corehome-yarpsettings
+          name: appsettings

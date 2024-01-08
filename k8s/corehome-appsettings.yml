@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: corehome-appsettings
+  namespace: default
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+      "ConnectionStrings": {
+        "CoreHome": "server=corehome.database;user id=root;password=password;database=corehome"
+      },
+      "PageSize": 10,
+      "PusherConfig": {
+        "Token": "",
+        "Uid": ""
+      },
+      "BaiduLinkSubmit": "",
+      "OssConfig": {
+        "AccessKeyId": "",
+        "AccessKeySecret": "",
+        "EndPoint": "",
+        "BucketDomainName": "",
+        "BucketName": ""
+      }
+    }
