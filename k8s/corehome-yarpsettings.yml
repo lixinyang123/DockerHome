@@ -33,14 +33,14 @@ data:
           "cluster1": {
             "Destinations": {
               "cluster1/destination1": {
-                "Address": "http://10.98.185.83:8080"
+                "Address": "http://corehome-homepage.default.svc.cluster.local:8080"
               }
             }
           },
           "cluster2": {
             "Destinations": {
               "cluster2/destination1": {
-                "Address": "http://10.102.33.27:8080"
+                "Address": "http://corehome-admin.default.svc.cluster.local:8080"
               }
             }
           }

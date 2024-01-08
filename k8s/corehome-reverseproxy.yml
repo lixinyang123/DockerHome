@@ -32,3 +32,25 @@ spec:
         - configMap:
             name: corehome-yarpsettings
           name: appsettings
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: corehome-reverseproxy
+  name: corehome-reverseproxy
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32324
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    name: corehome-reverseproxy
+  sessionAffinity: None
+  type: NodePort

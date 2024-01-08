@@ -32,3 +32,21 @@ spec:
         - configMap:
             name: corehome-appsettings
           name: appsettings
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: corehome-admin
+  name: corehome-admin
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    name: corehome-admin
+  type: ClusterIP

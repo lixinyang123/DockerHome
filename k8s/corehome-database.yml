@@ -21,3 +21,20 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: password
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: corehome-database
+  name: corehome-database
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: corehome-database
+  type: ClusterIP
