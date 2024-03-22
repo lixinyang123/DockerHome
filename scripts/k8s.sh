@@ -1,3 +1,5 @@
+#!/bin/bash
+
 kubectl apply -f ./k8s/corehome-database.yml
 kubectl apply -f ./k8s/corehome-appsettings.yml
 kubectl apply -f ./k8s/corehome-yarpsettings.yml
