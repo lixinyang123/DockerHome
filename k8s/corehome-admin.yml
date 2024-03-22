@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: corehome-admin
+  namespace: default
+  labels:
+    name: corehome-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: corehome-admin
+  template:
+    metadata:
+      labels:
+        name: corehome-admin
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: corehome-admin
+          image: lixinyang/corehome.admin
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+
+      volumes:
+        - configMap:
+            name: corehome-appsettings
+          name: appsettings
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: corehome-admin
+  name: corehome-admin
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    name: corehome-admin
+  type: ClusterIP

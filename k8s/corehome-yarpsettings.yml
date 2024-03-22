@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: corehome-yarpsettings
+  namespace: default
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+      "ReverseProxy": {
+        "Routes": [
+          {
+            "ClusterId": "cluster1",
+            "Match": {
+              "Path": "/{**catch-all}"
+            }
+          },
+          {
+            "ClusterId": "cluster2",
+            "Match": {
+              "Path": "/admin/{**catch-all}"
+            }
+          }
+        ],
+        "Clusters": {
+          "cluster1": {
+            "Destinations": {
+              "cluster1/destination1": {
+                "Address": "http://corehome-homepage.default.svc.cluster.local:8080"
+              }
+            }
+          },
+          "cluster2": {
+            "Destinations": {
+              "cluster2/destination1": {
+                "Address": "http://corehome-admin.default.svc.cluster.local:8080"
+              }
+            }
+          }
+        }
+      }
+    }
