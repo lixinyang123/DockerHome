@@ -27,11 +27,17 @@ spec:
               name: appsettings
               readOnly: true
               subPath: appsettings.json
+            - mountPath: /app/data
+              name: data
 
       volumes:
         - configMap:
             name: corehome-appsettings
           name: appsettings
+        - name: data
+          hostPath:
+            path: /var/lib/corehome
+            type: DirectoryOrCreate
 
 ---
 
