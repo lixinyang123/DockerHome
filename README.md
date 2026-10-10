@@ -112,7 +112,7 @@ git clone https://github.com/lixinyang123/DockerHome.git
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "CoreHome": "server=corehome.database;user id=root;password=password;database=corehome"
+    "CoreHome": "Data Source=/app/data/corehome.db"
   },
   "PageSize": 10,
   "PusherConfig": {
@@ -148,7 +148,7 @@ git clone https://github.com/lixinyang123/DockerHome.git
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "CoreHome": "server=database;user id=root;password=password;database=corehome"
+    "CoreHome": "Data Source=/app/data/corehome.db"
   },
   "PageSize": 10,
   "PusherConfig": {
@@ -206,7 +206,6 @@ docker compose up
 - lixinyang/corehome-homepage
 - lixinyang/corehome-admin
 - lixinyang/corehome-reverseproxy
-- mysql:latest
 
 如果拉取速度很慢，可以从阿里云拉取镜像，只需执行 `scripts/pull-image.sh.sh` ，并重新执行 `docker compose up` 即可。
 

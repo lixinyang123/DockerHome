@@ -15,7 +15,7 @@ data:
       },
       "AllowedHosts": "*",
       "ConnectionStrings": {
-        "CoreHome": "server=corehome-database.default.svc.cluster.local;user id=root;password=password;database=corehome"
+        "CoreHome": "Data Source=/app/data/corehome.db"
       },
       "PageSize": 10,
       "PusherConfig": {

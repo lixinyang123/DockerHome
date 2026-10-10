@@ -12,4 +12,3 @@ docker pull registry.cn-shenzhen.aliyuncs.com/lllxy/corehome.reverseproxy:latest
 docker tag registry.cn-shenzhen.aliyuncs.com/lllxy/corehome.reverseproxy:latest lixinyang/corehome.reverseproxy:latest
 docker rmi registry.cn-shenzhen.aliyuncs.com/lllxy/corehome.reverseproxy:latest
 
-docker pull mysql
